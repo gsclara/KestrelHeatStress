@@ -26,6 +26,8 @@ def readKestrelSensors(folder_name, sensor_name, start_date, end_date):
 	df = pd.read_excel(open(p_name+'/'+s_name, 'rb'), header=3) 
 	s_date = start_date
 	e_date = end_date
+	df['FORMATTED DATE_TIME'] = pd.to_datetime(df['FORMATTED DATE_TIME'], errors='coerce')
+	df['FORMATTED DATE_TIME'] = df['FORMATTED DATE_TIME'].dt.tz_localize('CET').dt.tz_convert('UTC')
 	data_interest = df[(df['FORMATTED DATE_TIME'].astype(str) >= s_date) & \
 		(df['FORMATTED DATE_TIME'].astype(str) <= e_date)]
 	return data_interest
