@@ -15,11 +15,14 @@ from matplotlib.cm import get_cmap
 
 
 # range of sensors to plot from Kestrel
-nsensor = [4,5]
+nsensor = [0,5]
+labelname = ['2514397','2514400','2514402','2514403','2520824']
+#nameFig = 'Meteo_Kestrel-'+labelname[4]
+nameFig = 'Meteo_Kestrel-All'
 
 # set start and end dates
 sdate = '2020-05-19 13:00:00'
-edate = '2020-05-20 10:00:00'
+edate = '2020-05-20 13:00:00'
 
 # set meteorological station input data
 meteo_pname = '/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress'
@@ -32,7 +35,6 @@ Kestrel_s2name = 'HEAT - 2514400.xls'
 Kestrel_s3name = 'HEAT - 2514402.xls'
 Kestrel_s4name = 'HEAT - 2514403.xls'
 Kestrel_s5name = 'HEAT - 2520824.xls'
-labelname = ['2514397','2514400','2514402','2514403','2520824']
 
 # read data from measurements
 data_meteo=read_data.readMeteoStationsRotterdam(meteo_pname, meteo_fname, meteo_sname,sdate,edate)
@@ -44,7 +46,7 @@ data_sensor[3]=read_data.readKestrelSensors(Kestrel_pname,Kestrel_s4name,sdate,e
 data_sensor[4]=read_data.readKestrelSensors(Kestrel_pname,Kestrel_s5name,sdate,edate)
 
 # plot Kestrel sensors
-fig = plt.figure(figsize=(15,10))
+fig = plt.figure(figsize=(16,8))
 ax1 = fig.add_subplot(221)
 ax2 = fig.add_subplot(222)
 ax3 = fig.add_subplot(223)
@@ -83,4 +85,6 @@ ax4.set_ylabel('Wind direction [deg]',fontsize=14)
 ax4.legend()
 ax4.set_xlabel('Time [UTC]',fontsize=14)
 
-plt.show()
+#plt.show()
+fig.savefig('/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress/plotsCalibration/'+nameFig)
+

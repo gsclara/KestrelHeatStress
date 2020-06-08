@@ -13,11 +13,15 @@ import matplotlib.ticker
 from matplotlib.cm import get_cmap
 
 # set start and end dates
-sdate = '2020-05-19 13:00:00'
-edate = '2020-05-20 10:00:00'
+# sdate = '2020-05-19 13:00:00'
+# edate = '2020-05-20 13:00:00'
+sdate = '2020-06-02 11:00:00'
+edate = '2020-06-03 11:00:00'
 
 # set Kestrel stations input data
-Kestrel_pname = '/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress/Calibration_Rotterdam_Bolnes/20200519_20'
+#Kestrel_pname = '/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress/Calibration_Rotterdam_Bolnes/20200519_20'
+Kestrel_pname = '/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress/Calibration Rotterdam Blijdorp/20200502-03'
+nameFig = 'KestrelCalibrationOverConcrete'
 Kestrel_s1name = 'HEAT - 2514397.xls'
 Kestrel_s2name = 'HEAT - 2514400.xls'
 Kestrel_s3name = 'HEAT - 2514402.xls'
@@ -70,4 +74,5 @@ ax4.set_ylabel('Heat Stress Index [C]',fontsize=14)
 ax4.legend()
 ax4.set_xlabel('Time [UTC]',fontsize=14)
 
-plt.show()
+#plt.show()
+fig.savefig('/Users/claragarciasan/Documents/TUD/MeasurementsHeatStress/plotsCalibration/'+nameFig)
