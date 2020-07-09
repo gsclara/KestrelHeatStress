@@ -38,7 +38,7 @@ data_sensor[4]=read_data.readKestrelSensors1(Kestrel_pname,Kestrel_s5name,sdate,
 
 # sensors numbers
 ss = 0
-se = 5
+se = 1
 
 # daily averages to choose a day to simulate
 for isensor in range(ss,se):
@@ -48,7 +48,17 @@ for isensor in range(ss,se):
 	data_sensor[isensor]['Temperature'] = data_sensor[isensor]['Temperature'].astype(float)
 	data_sensor[isensor].set_index('FORMATTED DATE-TIME')
 	dayly_avg = data_sensor[isensor].set_index('FORMATTED DATE-TIME').resample('1D').mean()
-	dayly_avg.to_csv(r'/Users/claragarciasan/Documents/TUD/Research/MeasurementsHeatStress/plots_chooseDay/'+nameTab0)
+	dayly_min = data_sensor[isensor].set_index('FORMATTED DATE-TIME').resample('1D').min()
+	dayly_max = data_sensor[isensor].set_index('FORMATTED DATE-TIME').resample('1D').max()
+	dayly_std = data_sensor[isensor].set_index('FORMATTED DATE-TIME').resample('1D').std()
+	print(dayly_std['Wind Speed'])
+	print(dayly_avg['Wind Speed'])
+	df_avg_min_max_std = pd.concat([dayly_avg['Temperature'], dayly_min['Temperature'],dayly_max['Temperature'],dayly_std['Temperature'],
+				dayly_avg['Wind Speed'], dayly_min['Wind Speed'],dayly_max['Wind Speed'],dayly_std['Wind Speed'],
+				dayly_avg['Relative Humidity'], dayly_min['Relative Humidity'],dayly_max['Relative Humidity'],dayly_std['Relative Humidity']], 
+				axis=1, keys=['T mean','T min','T max','T std', 'WS mean','WS min','WS max','WS std','RH mean','RH min','RH max','RH std',])
+
+	df_avg_min_max_std.to_csv(r'/Users/claragarciasan/Documents/TUD/Research/MeasurementsHeatStress/plots_chooseDay/'+nameTab0)
 
 # name tables validation output
 nameTab1 = 'hourly_averages_Temperature.csv'
