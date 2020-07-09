@@ -38,11 +38,11 @@ data_sensor[4]=read_data.readKestrelSensors1(Kestrel_pname,Kestrel_s5name,sdate,
 
 # sensors numbers
 ss = 0
-se = 1
+se = 5
 
 # daily averages to choose a day to simulate
 for isensor in range(ss,se):
-	nameTab0 = 'dayly_averages_sensor'+str(isensor+1)+'.csv'
+	nameTab0 = 'daily_averages_sensor'+str(isensor+1)+'.csv'
 	data_sensor[isensor]['Wind Speed'] = data_sensor[isensor]['Wind Speed'].astype(float)
 	data_sensor[isensor]['Relative Humidity'] = data_sensor[isensor]['Relative Humidity'].astype(float)
 	data_sensor[isensor]['Temperature'] = data_sensor[isensor]['Temperature'].astype(float)
