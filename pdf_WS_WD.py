@@ -18,15 +18,15 @@ from windrose import WindroseAxes
 
 # set start and end dates
 sdate = '2020-06-09 00:00:00'
-edate = '2020-07-07 00:00:00'
+edate = '2020-07-14 00:00:00'
 
 # set Kestrel stations input data
 Kestrel_pname = '/Users/claragarciasan/Documents/TUD/Research/MeasurementsHeatStress/data_campaign'
-Kestrel_s1name = 'HEAT - 2514397.xls'
-Kestrel_s2name = 'HEAT - 2514400.xls'
-Kestrel_s3name = 'HEAT - 2514402.xls'
-Kestrel_s4name = 'HEAT - 2514403.xls'
-Kestrel_s5name = 'HEAT - 2520824.xls'
+Kestrel_s1name = 'HEAT - 2514397_final.xls'
+Kestrel_s2name = 'HEAT - 2514400_final.xls'
+Kestrel_s3name = 'HEAT - 2514402_final.xls'
+Kestrel_s4name = 'HEAT - 2514403_final.xls'
+Kestrel_s5name = 'HEAT - 2520824_final.xls'
 labelname = ['2514397','2514400','2514402','2514403','2520824']
 
 
